@@ -1,2 +1,2 @@
-# vn-stock-api
-API server for Vietnam stock market
+# Vietnam Stock API
+Under development...
