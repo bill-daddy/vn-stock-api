@@ -1,14 +1,11 @@
 {
   "compilerOptions": {
-    "strict": true,
     "module": "commonjs",
     "esModuleInterop": true,
     "target": "esnext",
     "moduleResolution": "node",
     "sourceMap": true,
-    "outDir": "dist",
-    "noImplicitAny": true,
-    "strictNullChecks": true
+    "outDir": "dist"
   },
   "lib": ["es2015"]
 }
