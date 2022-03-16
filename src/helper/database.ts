@@ -4,15 +4,15 @@ import path from 'path';
 import { ROOT_PATH } from './path';
 
 type StockTuple = readonly [number, number, number, number, number];
-const sqlite = sqlite3.verbose()
-
+const sqlite = sqlite3.verbose();
 
 export class SqliteDatabase {
   db: sqlite3.Database;
+
   dbPath: string;
 
   constructor() {
-    this.dbPath = path.join(ROOT_PATH, 'database', 'stock.db')
+    this.dbPath = path.join(ROOT_PATH, 'database', 'stock.db');
     this.db = new sqlite.Database(this.dbPath);
   }
 
@@ -27,13 +27,17 @@ export class SqliteDatabase {
   }
 
   insert(code: string, data: StockTuple) {
-    this.db.run(`INSERT INTO ${code}(date, open, high, low, close) VALUES(${data.join(', ')})`)
+    this.db.run(
+      `INSERT INTO ${code}(date, open, high, low, close) VALUES(${data.join(
+        ', ',
+      )})`,
+    );
   }
 
   selectAll(code: string) {
     this.db.all(`SELECT * FROM ${code}`, (err, rows) => {
       console.log(rows);
-    })
+    });
   }
 
   close() {
